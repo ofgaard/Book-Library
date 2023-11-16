@@ -39,8 +39,27 @@ body {
 }
 
 .content {
+    margin-top: 10em;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-left: 8em;
+    padding-right: 8em;
 }
+
+.content-grid {
+    padding-top: 5em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+}
+
+.content-grid > div {
+    min-height: 10em;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.065);
+}
+
 
 .footer {
     flex: 0 0 5%; 
