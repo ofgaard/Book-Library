@@ -1,43 +1,38 @@
+const contentGrid = document.querySelector('.content-grid');
+
 const myLibrary = [
-    'Europe',
-    'The Son',
-    'South America',
 ];
 
-function book(title, author, pages, read) {
+function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function(){
-        return (title + ' by ' + author + ', ' + pages + ', ' + read)
-    };
+    this.info = (title + ' by ' + author + ', ' + pages + ', ' + read);
 };
 
-let theHobbit = new book('The Hobbit', 'JR Tolkien', '500 pages', 'not read yet');
+let theHobbit = new Book('The Hobbit', 'JR Tolkien', '500 pages', 'not read yet');
+let goldFinch = new Book('The Goldfinch', 'Donna Tartt', '800 pages', 'read');
+let prettyHorses = new Book('All The Pretty Horses', 'Cormac McCarthy', '430 pages', 'not read yet');
 
-const addBookToLibrary = (bookTitle) => {
-    myLibrary.push(bookTitle.title);
-    console.log(bookTitle.title + ' has been added to the library!');
+
+const addBookToLibrary = (book) => {
+    myLibrary.push(book.info);
+    console.log(book.title + ' has been added to the library!');
 };
 
-// console.log(addBookToLibrary(theHobbit));
+addBookToLibrary(theHobbit);
+addBookToLibrary(goldFinch);
+addBookToLibrary(prettyHorses);
 
 
-
-// console.log(theHobbit.info());
-
-
-// const displayBooks = () => {
-//     for (let i = 0; i < myLibrary.length; i++) {
-//         console.log(myLibrary[i]);
-//     }
-// };
-
-// console.log(displayBooks());
 
 const displayBooks = () => {
-    myLibrary.forEach(book => console.log(book));
+    myLibrary.forEach(book => {
+        let bookCard = document.createElement('div');
+        bookCard.textContent = book;
+        contentGrid.appendChild(bookCard);
+    });
 };
 
-console.log(displayBooks());
+displayBooks();
