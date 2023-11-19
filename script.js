@@ -39,3 +39,15 @@ const displayBooks = () => {
 };
 
 displayBooks();
+
+const addButton = document.querySelector('.add-button')
+const closeButton = document.querySelector('.close')
+
+addButton.addEventListener("click", function() {
+   document.querySelector('.add-form').style.display = "flex";
+   document.querySelector('.add-form').style.flexDirection = "column";
+})
+
+closeButton.addEventListener("click", function() {
+    document.querySelector('.add-form').style.display = "none";
+})

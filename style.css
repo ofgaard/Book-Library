@@ -58,16 +58,53 @@ body {
 
 .add-form {
     display: none; 
+    z-index: 1;
+    position: fixed;
+    margin-top: -3%;
+    background-color: #f59e0b;
+    border-radius: 8px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.065);
+    padding-right: 5em;
+    padding-left: 5em;
+    padding-top: 5em;
+    padding-bottom: 1em     ;
+    width: 50%;
+    height: 50%;
 }
 .form ul {
     list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
 }
 
 .form li {
     display: flex;
     flex-direction: column;
+    gap: 1em;
 }
 
+.form input, select {
+    border-radius: 8px;
+    border-style: none;
+}
+
+.close-button {
+    margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.close-button button {
+    margin-top: 2em;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #713f12;
+    color: white;
+    width: 30%;
+    height: 50%;
+}
 
 .right, .left {
     display: flex;
