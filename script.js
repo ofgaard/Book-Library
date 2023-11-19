@@ -9,6 +9,10 @@ function Book(title, author, pages, read) {
     this.pages = pages;
     this.read = read;
     this.info = (title + ' by ' + author + ', ' + pages + ', ' + read);
+    this.toggleReadStatus = () => {
+        this.read = this.read === 'read' ? 'not read yet' : 'read';
+        
+};
 };
 
 let theHobbit = new Book('The Hobbit', 'JR Tolkien', '500 pages', 'not read yet');
@@ -41,8 +45,17 @@ const displayBooks = () => {
             myLibrary.splice(index, 1);
             displayBooks();
         });
+        let toggleButton = document.createElement('button');
+        toggleButton.classList.add('toggle-button');
+        toggleButton.innerHTML = '<i class="fa-solid fa-check"></i>';
+        toggleButton.addEventListener('click', () => {
+            book.toggleReadStatus();
+            displayBooks();
+        });
+
         cardText.textContent = `${book.title} by ${book.author}, ${book.pages} pages, ${book.read}`;
         bookCard.appendChild(cardText);
+        icons.appendChild(toggleButton);
         icons.appendChild(deleteButton);
         bookCard.appendChild(icons);
         contentGrid.appendChild(bookCard);
