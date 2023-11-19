@@ -29,17 +29,29 @@ addBookToLibrary(prettyHorses);
 
 const displayBooks = () => {
     contentGrid.innerHTML = '';
-    myLibrary.forEach(book => {
+    myLibrary.forEach((book, index) => {
         let bookCard = document.createElement('div');
         let cardText = document.createElement('p');
+        let icons = document.createElement('div');
+        icons.classList.add('book-icons');
+        let deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-button');
+        deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
+        deleteButton.addEventListener('click', () => {
+            myLibrary.splice(index, 1);
+            displayBooks();
+        });
         cardText.textContent = `${book.title} by ${book.author}, ${book.pages} pages, ${book.read}`;
         bookCard.appendChild(cardText);
+        icons.appendChild(deleteButton);
+        bookCard.appendChild(icons);
         contentGrid.appendChild(bookCard);
-
     });
 };
 
+
 displayBooks();
+
 
 const addButton = document.querySelector('.add-button')
 const closeButton = document.querySelector('.close')
@@ -68,5 +80,6 @@ submit.addEventListener("click", function() {
     addBookToLibrary(newBook);
     allInputs.forEach(singleInput => singleInput.value = '');
     displayBooks();
+
     document.querySelector('.add-form').style.display = "none";
 })

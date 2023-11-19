@@ -140,7 +140,20 @@ body {
     justify-content: center;
     align-items: center;
     padding: 2em;
-    text-align: center;
+}
+
+.book-icons {
+    display: flex;
+    flex-direction: row;
+    margin-top: auto;
+    justify-content: flex-end;
+}
+
+.book-icons > button {
+    padding: 0;
+border: none;
+background: none;
+cursor: pointer;
 }
 
 
