@@ -20,6 +20,7 @@ body {
     height: 100%;
     background-color: #f59e0b;
     padding-left: 2em;
+    padding-right: 2em;
 }
 
 .header {
@@ -38,13 +39,41 @@ body {
     align-items: center;
 }
 
-.content {
-    margin-top: 10em;
+.midsection {
     flex: 1;
+    margin-top: 10em;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 1em;
+}
+
+.left-header > button {
+    margin-top: 2em;
+    border-radius: 8px;
+    border-style: none;
+    background-color: #713f12;
+    color: white;
+    width: 60%;
+}
+
+.add-form {
+    display: none; 
+}
+.form ul {
+    list-style-type: none;
+}
+
+.form li {
     display: flex;
     flex-direction: column;
-    padding-left: 8em;
-    padding-right: 8em;
+}
+
+
+.right, .left {
+    display: flex;
+    flex-direction: column;
+    padding: 3em;
+
 }
 
 .content-grid {
@@ -52,6 +81,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1em;
+    padding: 2em;
 }
 
 .content-grid > div {

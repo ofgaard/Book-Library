@@ -30,8 +30,11 @@ addBookToLibrary(prettyHorses);
 const displayBooks = () => {
     myLibrary.forEach(book => {
         let bookCard = document.createElement('div');
-        bookCard.textContent = book;
+        let cardText = document.createElement('p');
+        cardText.textContent = book;
+        bookCard.appendChild(cardText);
         contentGrid.appendChild(bookCard);
+
     });
 };
 
