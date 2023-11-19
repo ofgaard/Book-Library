@@ -54,6 +54,7 @@ body {
     background-color: #713f12;
     color: white;
     width: 60%;
+    cursor: pointer;
 }
 
 .add-form {
@@ -89,21 +90,30 @@ body {
     border-style: none;
 }
 
-.close-button {
+.form-buttons {
     margin-top: auto;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    gap: 1em;
 }
 
-.close-button button {
+.form-buttons button {
     margin-top: 2em;
     border-radius: 5px;
     border-style: none;
-    background-color: #713f12;
     color: white;
     width: 30%;
     height: 50%;
+    cursor: pointer;
+}
+
+.form-buttons .close {
+    background-color: rgb(132, 72, 20);
+}
+
+.form-buttons .submit {
+    background-color: rgb(22, 37, 107);
 }
 
 .right, .left {

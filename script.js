@@ -17,7 +17,7 @@ let prettyHorses = new Book('All The Pretty Horses', 'Cormac McCarthy', '430 pag
 
 
 const addBookToLibrary = (book) => {
-    myLibrary.push(book.info);
+    myLibrary.push(book);
     console.log(book.title + ' has been added to the library!');
 };
 
@@ -28,10 +28,11 @@ addBookToLibrary(prettyHorses);
 
 
 const displayBooks = () => {
+    contentGrid.innerHTML = '';
     myLibrary.forEach(book => {
         let bookCard = document.createElement('div');
         let cardText = document.createElement('p');
-        cardText.textContent = book;
+        cardText.textContent = `${book.title} by ${book.author}, ${book.pages} pages, ${book.read}`;
         bookCard.appendChild(cardText);
         contentGrid.appendChild(bookCard);
 
@@ -42,6 +43,7 @@ displayBooks();
 
 const addButton = document.querySelector('.add-button')
 const closeButton = document.querySelector('.close')
+const submit = document.querySelector('.submit')
 
 addButton.addEventListener("click", function() {
    document.querySelector('.add-form').style.display = "flex";
@@ -49,5 +51,22 @@ addButton.addEventListener("click", function() {
 })
 
 closeButton.addEventListener("click", function() {
+    document.querySelector('.add-form').style.display = "none";
+})
+
+submit.addEventListener("click", function() {
+    let inputTitle = document.getElementsByName('title')[0].value;
+    let inputAuthor = document.getElementsByName('author')[0].value;
+    let inputPages = document.getElementsByClassName('pages')[0].value; 
+    let inputRead = document.getElementsByName('read')[0].value;
+    let allInputs = document.querySelectorAll('input');
+    if (inputTitle === '' || inputAuthor === '' || inputPages === '' || inputRead === '') {
+        alert('Please fill in all fields before submitting.');
+        return; 
+    }
+    let newBook = new Book(inputTitle, inputAuthor, inputPages, inputRead);
+    addBookToLibrary(newBook);
+    allInputs.forEach(singleInput => singleInput.value = '');
+    displayBooks();
     document.querySelector('.add-form').style.display = "none";
 })
